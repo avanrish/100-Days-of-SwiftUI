@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FlagImage: View {
     var country: String
-    
+
     var body: some View {
         Image(country)
             .renderingMode(.original)
