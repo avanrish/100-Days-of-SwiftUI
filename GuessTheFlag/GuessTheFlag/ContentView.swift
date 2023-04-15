@@ -28,6 +28,8 @@ struct ContentView: View {
     @State private var questionCount = 0
     @State private var showingEnd = false
 
+    @State private var flagSelected: Int = -1
+
     var body: some View {
         ZStack {
             // LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
@@ -54,9 +56,15 @@ struct ContentView: View {
 
                     ForEach(0 ..< 3) { number in
                         Button {
+                            withAnimation {
+                                flagSelected = number
+                            }
                             flagTapped(number)
                         } label: {
                             FlagImage(country: countries[number])
+                                .rotation3DEffect(.degrees(flagSelected == number ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+                                .opacity(flagSelected == -1 || flagSelected == number ? 1 : 0.25)
+                                .rotation3DEffect(.degrees(flagSelected == -1 || flagSelected == number ? 0 : 180), axis: (x: 1, y: 0, z:0))
                         }
                     }
                 }
@@ -115,6 +123,7 @@ struct ContentView: View {
     }
 
     func askQuestion() {
+        flagSelected = -1
         countries.shuffle()
         correctAnswer = Int.random(in: 0 ... 2)
     }
