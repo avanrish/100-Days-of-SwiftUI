@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Challenge_1App: App {
+    let distanceManager = DistanceManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(distanceManager: distanceManager)
         }
     }
 }

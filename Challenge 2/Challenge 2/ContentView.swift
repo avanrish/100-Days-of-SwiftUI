@@ -46,7 +46,6 @@ struct ContentView: View {
             }
         }
         .alert(scoreTitle, isPresented: $showAlert) {
-            Button("Continue") {}
         } message: {
             Text(scoreMessage)
         }
