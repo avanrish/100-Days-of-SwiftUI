@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var gameManager = GameManager()
+    @StateObject var gameViewModel = GameViewModel()
 
     var body: some View {
         ZStack {
@@ -19,14 +19,14 @@ struct ContentView: View {
                 gameInformation
             }
         }
-        .alert(gameManager.postMoveAlertTitle, isPresented: $gameManager.showPostMoveAlert) {
-            if gameManager.questionCount == gameManager.questionLimit {
+        .alert(gameViewModel.postMoveAlertTitle, isPresented: $gameViewModel.isPostMoveAlertDisplayed) {
+            if gameViewModel.questionCount == gameViewModel.questionLimit {
                 Button("Restart") {
-                    gameManager.resetGame()
+                    gameViewModel.resetGame()
                 }
             }
         } message: {
-            Text(gameManager.postMoveAlertMessage)
+            Text(gameViewModel.postMoveAlertMessage)
         }
     }
 
@@ -39,7 +39,7 @@ struct ContentView: View {
         VStack {
             Text("Select a move to")
                 .font(.headline.bold())
-            Text(gameManager.winningMode ? "Win" : "Lose")
+            Text(gameViewModel.winningMode ? "Win" : "Lose")
                 .font(.largeTitle.weight(.semibold))
         }
     }
@@ -48,7 +48,7 @@ struct ContentView: View {
         HStack {
             ForEach(PossibleMove.allCases, id: \.self) { move in
                 Button(move.rawValue.capitalized) {
-                    gameManager.makeMove(move)
+                    gameViewModel.makeMove(move)
                 }
                 .buttonStyle(.borderedProminent)
             }
@@ -57,8 +57,8 @@ struct ContentView: View {
 
     var gameInformation: some View {
         VStack(spacing: 15) {
-            Text("App's move: \(gameManager.selectedMoveByApp.rawValue.capitalized)")
-            Text("Score: \(gameManager.score)")
+            Text("App's move: \(gameViewModel.selectedMoveByApp.rawValue.capitalized)")
+            Text("Score: \(gameViewModel.score)")
                 .font(.headline.weight(.semibold))
         }
     }

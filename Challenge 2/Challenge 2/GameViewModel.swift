@@ -1,5 +1,5 @@
 //
-//  GameManager.swift
+//  GameViewModel.swift
 //  Challenge 2
 //
 //  Created by Bartosz Lipiński on 17/04/2023.
@@ -7,15 +7,15 @@
 
 import Combine
 
-class GameManager: ObservableObject {
+class GameViewModel: ObservableObject {
     @Published var selectedMoveByApp = PossibleMove.allCases.randomElement() ?? .rock
     @Published var winningMode = Bool.random()
     @Published var score = 0
     @Published var questionCount = 0
-    @Published var postMoveAlertTitle = ""
-    @Published var postMoveAlertMessage = ""
-    @Published var showPostMoveAlert = false
-    @Published var questionLimit = 3
+    var postMoveAlertTitle = ""
+    var postMoveAlertMessage = ""
+    var isPostMoveAlertDisplayed = false
+    let questionLimit = 5
 
     func resetGame() {
         score = 0
@@ -47,7 +47,7 @@ class GameManager: ObservableObject {
             The game has ended, your score is \(score)
             You can restart any time!
             """
-            showPostMoveAlert = true
+            isPostMoveAlertDisplayed = true
             return
         }
         switch outcome {
@@ -64,7 +64,7 @@ class GameManager: ObservableObject {
             postMoveAlertTitle = "Wrong"
             postMoveAlertMessage = "Current score: \(score)"
         }
-        showPostMoveAlert = true
+        isPostMoveAlertDisplayed = true
     }
 
     func selectedMoveOutcome(_ move: PossibleMove) -> PossibleOutcome {
