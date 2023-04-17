@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		995D1EA729ED84350042CC62 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1EA629ED84350042CC62 /* GameViewModel.swift */; };
+		995D1EA929ED84880042CC62 /* PossibleMove.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1EA829ED84880042CC62 /* PossibleMove.swift */; };
+		995D1EAB29ED89100042CC62 /* PossibleOutcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995D1EAA29ED89100042CC62 /* PossibleOutcome.swift */; };
 		9981E37D29E8769900F16BBC /* Challenge_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9981E37C29E8769900F16BBC /* Challenge_2App.swift */; };
 		9981E37F29E8769900F16BBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9981E37E29E8769900F16BBC /* ContentView.swift */; };
 		9981E38129E8769A00F16BBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9981E38029E8769A00F16BBC /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		995D1EA629ED84350042CC62 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		995D1EA829ED84880042CC62 /* PossibleMove.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleMove.swift; sourceTree = "<group>"; };
+		995D1EAA29ED89100042CC62 /* PossibleOutcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleOutcome.swift; sourceTree = "<group>"; };
 		9981E37929E8769900F16BBC /* Challenge 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9981E37C29E8769900F16BBC /* Challenge_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge_2App.swift; sourceTree = "<group>"; };
 		9981E37E29E8769900F16BBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +61,9 @@
 				9981E37E29E8769900F16BBC /* ContentView.swift */,
 				9981E38029E8769A00F16BBC /* Assets.xcassets */,
 				9981E38229E8769A00F16BBC /* Preview Content */,
+				995D1EA629ED84350042CC62 /* GameViewModel.swift */,
+				995D1EA829ED84880042CC62 /* PossibleMove.swift */,
+				995D1EAA29ED89100042CC62 /* PossibleOutcome.swift */,
 			);
 			path = "Challenge 2";
 			sourceTree = "<group>";
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9981E37F29E8769900F16BBC /* ContentView.swift in Sources */,
+				995D1EA929ED84880042CC62 /* PossibleMove.swift in Sources */,
+				995D1EA729ED84350042CC62 /* GameViewModel.swift in Sources */,
 				9981E37D29E8769900F16BBC /* Challenge_2App.swift in Sources */,
+				995D1EAB29ED89100042CC62 /* PossibleOutcome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
