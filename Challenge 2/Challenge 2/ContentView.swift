@@ -39,7 +39,7 @@ struct ContentView: View {
         VStack {
             Text("Select a move to")
                 .font(.headline.bold())
-            Text(gameViewModel.winningMode ? "Win" : "Lose")
+            Text(gameViewModel.winningMode ? PossibleOutcome.win.rawValue.capitalized : PossibleOutcome.lose.rawValue.capitalized)
                 .font(.largeTitle.weight(.semibold))
         }
     }

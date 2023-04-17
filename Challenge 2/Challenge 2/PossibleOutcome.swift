@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PossibleOutcome {
+enum PossibleOutcome: String {
     case win
     case lose
     case draw
