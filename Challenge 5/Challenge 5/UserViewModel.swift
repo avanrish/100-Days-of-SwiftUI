@@ -8,7 +8,6 @@
 import Alamofire
 import Foundation
 
-@MainActor
 class UserViewModel: ObservableObject {
     @Published var users: [User] = []
 
@@ -16,17 +15,14 @@ class UserViewModel: ObservableObject {
         if !users.isEmpty {
             return
         }
-        AF.request("https://www.hackingwithswift.com/samples/friendface.json").response { response in
-            if let data = response.data {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                do {
-                    let decodedData = try decoder.decode([User].self, from: data)
-                    self.users = decodedData
-                }
-                catch {
-                    print("There has been an error while decoding data")
-                }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        AF.request("https://www.hackingwithswift.com/samples/friendface.json").responseDecodable(of: [User].self, decoder: decoder) { response in
+            switch response.result {
+            case .success(let users):
+                self.users = users
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
