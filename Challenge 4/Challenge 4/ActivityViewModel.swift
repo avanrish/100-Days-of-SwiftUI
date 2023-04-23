@@ -33,4 +33,8 @@ class ActivityViewModel: ObservableObject {
             activities[index].noOfCompletion += 1
         }
     }
+
+    func addActivity(name: String, description: String) {
+        activities.append(Activity(name: name, description: description, noOfCompletion: 0))
+    }
 }

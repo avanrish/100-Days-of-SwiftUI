@@ -20,7 +20,7 @@ struct AddActivityView: View {
                 TextField("Description", text: $activityDescription, axis: .vertical)
             }
             Button("Add activity") {
-                activityViewModel.activities.append(Activity(name: activityName, description: activityDescription, noOfCompletion: 0))
+                activityViewModel.addActivity(name: activityName, description: activityDescription)
                 resetForm()
             }
         }
