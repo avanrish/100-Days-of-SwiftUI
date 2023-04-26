@@ -40,6 +40,10 @@ struct ListView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(.lightBackground)
                     )
+                    .accessibilityElement()
+                    .accessibilityLabel(mission.displayName)
+                    .accessibilityHint(mission.formattedLaunchDate)
+                    .accessibilityAddTraits(.isButton)
                 }
             }
         }

@@ -23,6 +23,9 @@ struct ExpenseEntryView: View {
             Text(expense.amount, format: currencyFormat)
                 .foregroundColor(expense.amount < 10 ? .green : expense.amount < 100 ? .blue : .red)
         }
+        .accessibilityElement()
+        .accessibilityLabel("\(expense.name) \(expense.amount)")
+        .accessibilityHint(expense.type)
     }
 }
 

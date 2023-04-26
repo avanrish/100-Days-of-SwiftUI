@@ -13,6 +13,7 @@ struct DividerView: View {
             .frame(height: 2)
             .foregroundColor(.lightBackground)
             .padding(.vertical)
+            .accessibilityHidden(true)
     }
 }
 
