@@ -9,27 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var personViewModel = PersonViewModel()
-//    @State var isImagePickerPresented = false
 
     var body: some View {
         NavigationView {
             List(personViewModel.people) { person in
                 NavigationLink {
-                    if let image = FileManager.loadImageFromDocuments(fileName: "\(person.id).jpg") {
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                    AsyncImage(url: FileManager.documentsDirectory.appendingPathComponent("\(person.id).jpg")) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
                     }
                 } label: {
                     HStack {
                         Text(person.name)
                         Spacer()
-                        if let image = FileManager.loadImageFromDocuments(fileName: "\(person.id).jpg") {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 64)
-                                .clipShape(Circle())
+                        AsyncImage(url: FileManager.documentsDirectory.appendingPathComponent("\(person.id).jpg")) { phase in
+                            if let image = phase.image {
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 64)
+                                    .clipShape(Circle())
+                            }
                         }
                     }
                 }

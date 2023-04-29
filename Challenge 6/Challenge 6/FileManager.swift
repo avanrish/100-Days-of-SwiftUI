@@ -12,11 +12,4 @@ extension FileManager {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-
-    static func loadImageFromDocuments(fileName: String) -> UIImage? {
-        let documentsDirectory = self.documentsDirectory
-        let imageUrl = documentsDirectory.appendingPathComponent(fileName)
-        let image = UIImage(contentsOfFile: imageUrl.path)
-        return image
-    }
 }
